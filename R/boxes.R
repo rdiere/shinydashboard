@@ -67,7 +67,7 @@ valueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
 #' @export
 infoBox <- function(title, value = NULL, subtitle = NULL,
   icon = shiny::icon("bar-chart"), color = "aqua", width = 4, href = NULL,
-  fill = FALSE, progress = NULL) {
+  fill = FALSE, progress = NULL, progress_descr=NULL, progress_pct = NULL) {
 
   validateColor(color)
   tagAssert(icon, type = "i")
