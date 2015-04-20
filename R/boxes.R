@@ -58,14 +58,16 @@ valueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
 #'   content; the icon will use the same color with a slightly darkened
 #'   background.
 #' @param href An optional URL to link to.
-#'
+#' @param progress An optional progressbar
+#' @param progress_descr progress description (Optional).
+#' @param progress_pct progress percentage (optional).
 #' @family boxes
 #' @seealso \code{\link{box}} for usage examples.
 #'
 #' @export
 infoBox <- function(title, value = NULL, subtitle = NULL,
   icon = shiny::icon("bar-chart"), color = "aqua", width = 4, href = NULL,
-  fill = FALSE) {
+  fill = FALSE, progress = NULL) {
 
   validateColor(color)
   tagAssert(icon, type = "i")
@@ -73,7 +75,7 @@ infoBox <- function(title, value = NULL, subtitle = NULL,
   colorClass <- paste0("bg-", color)
 
   boxContent <- div(
-    class = "info-box",
+    class = "info-box",sty
     class = if (fill) colorClass,
     span(
       class = "info-box-icon",
@@ -84,11 +86,16 @@ infoBox <- function(title, value = NULL, subtitle = NULL,
       span(class = "info-box-text", title),
       if (!is.null(value)) span(class = "info-box-number", value),
       if (!is.null(subtitle)) p(subtitle)
+      if (!is.null(progress)) div(class = "progress", span(class = "progress-bar", style = style = paste0("width: ", validateCssUnit(progress))),
+      if (!is.null(progress_desc)) span(class="progress-description", progress_desc))
     )
+    
   )
 
   if (!is.null(href))
     boxContent <- a(href = href, boxContent)
+    
+  
 
   div(class = if (!is.null(width)) paste0("col-sm-", width),
     boxContent
