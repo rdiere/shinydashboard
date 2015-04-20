@@ -75,7 +75,7 @@ infoBox <- function(title, value = NULL, subtitle = NULL,
   colorClass <- paste0("bg-", color)
 
   boxContent <- div(
-    class = "info-box",sty
+    class = "info-box",
     class = if (fill) colorClass,
     span(
       class = "info-box-icon",
