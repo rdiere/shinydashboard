@@ -60,14 +60,13 @@ valueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
 #' @param href An optional URL to link to.
 #' @param progress An optional progressbar
 #' @param progress_descr progress description (Optional).
-#' @param progress_pct progress percentage (optional).
 #' @family boxes
 #' @seealso \code{\link{box}} for usage examples.
 #'
 #' @export
 infoBox <- function(title, value = NULL, subtitle = NULL,
   icon = shiny::icon("bar-chart"), color = "aqua", width = 4, href = NULL,
-  fill = FALSE, progress = NULL, progress_descr=NULL, progress_pct = NULL) {
+  fill = FALSE, progress = NULL, progress_desc=NULL) {
 
   validateColor(color)
   tagAssert(icon, type = "i")
