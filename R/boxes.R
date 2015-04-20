@@ -66,7 +66,7 @@ valueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
 #' @export
 infoBox <- function(title, value = NULL, subtitle = NULL,
   icon = shiny::icon("bar-chart"), color = "aqua", width = 4, href = NULL,
-  fill = FALSE, progress = NULL, progress_desc=NULL) {
+  fill = FALSE, progress = NULL, progress_descr=NULL) {
 
   validateColor(color)
   tagAssert(icon, type = "i")
@@ -86,7 +86,7 @@ infoBox <- function(title, value = NULL, subtitle = NULL,
       if (!is.null(value)) span(class = "info-box-number", value),
       if (!is.null(subtitle)) p(subtitle),
       if (!is.null(progress)) div(class = "progress", span(class = "progress-bar", style = paste0("width: ", validateCssUnit(progress)))),
-      if (!is.null(progress_desc)) span(class="progress-description", progress_desc)
+      if (!is.null(progress_descr)) span(class="progress-description", progress_descr)
     )
     
   )
